@@ -13,6 +13,7 @@ transformers = "4.39.3"
 torch = "^2.4.0"
 setuptools = "^72.0.0"
 haystack-ai = "^2.3.0"
+pymupdf = "^1.24.9"
 
 
 [build-system]
