@@ -1,14 +1,19 @@
-from haystack.nodes import DensePassageRetriever, RAGenerator
+from haystack.components.retrievers.in_memory import InMemoryBM25Retriever
+from haystack.components.generators import HuggingFaceLocalGenerator
 
 def get_retriever(document_store):
-    return DensePassageRetriever(
+    document_store = document_store
+    retriever = InMemoryBM25Retriever(
         document_store=document_store,
-        query_embedding_model="facebook/dpr-question_encoder-single-nq-base",
-        passage_embedding_model="facebook/dpr-ctx_encoder-single-nq-base"
     )
+    return retriever
 
 def get_generator():
-    return RAGenerator(
-        model_name_or_path="facebook/rag-token-nq",
-        use_gpu=True
-    )
+    generator = HuggingFaceLocalGenerator(
+        model="google/flan-t5-large",
+        task="text2text-generation",
+        generation_kwargs={
+        "max_new_tokens": 100,
+        "temperature": 0.9,
+        })
+    return generator
