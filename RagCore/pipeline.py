@@ -4,7 +4,7 @@ from .retriever_generator import get_retriever, get_generator
 from .prompt_builder import get_prompt_builder
 
 def get_pipeline():
-    retriever = get_retriever(get_document_store())
+    retriever = get_retriever(get_document_store('RagCore/data'))
     generator = get_generator()
     prompt_builder = get_prompt_builder()
 

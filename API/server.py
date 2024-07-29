@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from .models.Query import Query
 from RagCore.pipeline import get_pipeline
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 pipe = get_pipeline()
