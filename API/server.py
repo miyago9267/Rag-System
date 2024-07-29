@@ -7,8 +7,13 @@ pipe = get_pipeline()
 
 @app.post("/query")
 def query(query: Query):
-    result = pipe.run(query=query.question, params={"Retriever": {"top_k": 10}})
-    return {"answer": result['answers'][0].answer}
+    result = pipe.run(
+        {
+            "retriever": {"query": query.question},
+            "prompt_builder": {"question": query.question},
+        }
+    )
+    return {"answer": result["llm"]["replies"]}
 
 if __name__ == "__main__":
     import uvicorn
