@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ragsystem"
+version = "0.1.0"
+description = "ragsystem for low research and api"
+authors = ["miyago9267 <miyagomizugen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.1"
+uvicorn = "^0.30.3"
+transformers = "4.39.3"
+torch = "^2.4.0"
+farm-haystack = "^1.26.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
