@@ -11,8 +11,8 @@ fastapi = "^0.111.1"
 uvicorn = "^0.30.3"
 transformers = "4.39.3"
 torch = "^2.4.0"
-farm-haystack = "^1.26.2"
 setuptools = "^72.0.0"
+haystack-ai = "^2.3.0"
 
 
 [build-system]
