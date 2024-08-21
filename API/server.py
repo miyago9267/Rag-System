@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from .models.Query import Query
 from RagCore.pipeline import get_pipeline
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
@@ -13,16 +14,16 @@ def query(query: Query):
     result = pipe.run(
         {
             "retriever": {"query": query.question},
-            "prompt_builder": {"question": query.question},
+            "prompt_builder": {"query": query.question},
         }
     )
-    return {"answer": result["llm"]["replies"]}
+    return {"answer": result}
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "server:app",
         host="0.0.0.0",
-        port=8000,
+        port=7001,
         reload=True
     )

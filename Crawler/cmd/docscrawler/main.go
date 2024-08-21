@@ -1,0 +1,4 @@
+package docscrawler
+
+func main() {
+}
