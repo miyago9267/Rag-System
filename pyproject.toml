@@ -16,6 +16,7 @@ haystack-ai = "^2.3.0"
 pymupdf = "^1.24.9"
 sentencepiece = "^0.2.0"
 protobuf = "^5.27.3"
+accelerate = "^0.33.0"
 
 
 [build-system]

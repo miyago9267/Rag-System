@@ -20,11 +20,11 @@ def get_document_store(pdf_paths):
         Document(content="Tokyo is the capital of Japan")
     ]
     
-    # for f in os.listdir(pdf_paths):
-    #     if f.endswith(".pdf"):
-    #         pdf_path = os.path.join(pdf_paths, f)
-    #         text = pdf_to_text(pdf_path)
-    #         documents.append(Document(content=text))
+    for f in os.listdir(pdf_paths):
+        if f.endswith(".pdf"):
+            pdf_path = os.path.join(pdf_paths, f)
+            text = pdf_to_text(pdf_path)
+            documents.append(Document(content=text))
 
     document_store.write_documents(documents)
     return document_store
